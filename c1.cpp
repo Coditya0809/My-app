@@ -8,20 +8,21 @@ struct node
 typedef node* lptr;
 void insert(int v)
 {
-	lptr temp=head;
+	lptr temp=head,nn;
 	if(head==NULL)
 	{
 		head=new (node);
 		head->data=v;
 		head->next=NULL;
+		temp=head;
 	}
 	else
 	{
 		while(temp->next!=NULL)temp=temp->next;
-		temp=temp->next;
-		temp=new (node);
-		temp->data=v;
-		temp->next=NULL;
+		nn=new (node);
+		nn->data=v;
+		nn->next=NULL;
+		temp->next=nn;
 	}
 }
 void print()
